@@ -1,0 +1,13 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1809
+
+I'll admit, I don't use gvim, except on Windows machines.  When I'm at a terminal, I'm in front of a 88 or 256 color terminal 90% of the time.  Because of this, I have lots of fancy color options, but my vim setup doesn't take advantage of them well because most interesting color schemes are made for gvim and not console vim.  Sure, inkpot, desert256, and a handful of others work nicely, but the choices are so limited.
+
+Enter GuiColorScheme.  This script converts, as best it can muster, the gui-specific parts of a colorscheme into color numbers for 88 and 256 color terminals (it should also still support gvim as well).
+
+Usage:
+   :GuiColorScheme <color scheme name>
+
+Tab completion works exactly like the completion for the :colorscheme command, so you can use it to browse through your colorschemes.
+
+For good measure, a screenshot, showing gvim and putty (in 256 color mode):
+http://img.phraktured.net/other/guicolorscheme.png
