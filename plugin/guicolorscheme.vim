@@ -3,7 +3,7 @@
 " Maintainer:	 Aaron Griffin <aaron@archlinux.org>
 " Last Modified: Mon Feb 26 22:52:34 UTC 2007
 " Version:       1.0 for Vim 7.0+ 
-" URL:           <TBD>
+" URL:           http://www.vim.org/script.php?script_id=39
 "
 " Convert a GUI-only colorscheme to support 88 and 256 color terminals
 " This should also work on the GUI, so using it 100% of the time, assuming
@@ -241,6 +241,11 @@ function! s:GuiColorScheme(fname)
     let l:file = s:GetColorschemeFile(a:fname)
     if l:file == ""
         return 1
+    endif
+
+    if has("gui_running")
+        exec "colorscheme " . l:file
+        return 0
     endif
 
     for line in readfile(l:file)
