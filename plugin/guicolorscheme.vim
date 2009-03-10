@@ -2,7 +2,7 @@
 "
 " Maintainer:	 Aaron Griffin <aaron@archlinux.org>
 " Last Modified: Mon Feb 26 22:52:34 UTC 2007
-" Version:       1.0 for Vim 7.0+ 
+" Version:       1.2
 " URL:           http://www.vim.org/script.php?script_id=39
 "
 " Convert a GUI-only colorscheme to support 88 and 256 color terminals
@@ -199,6 +199,7 @@ endfunction "}}}
 
 function! s:HL(group, fg, bg, attr) "{{{
     "The main highlight (HL) function
+    exec "hi clear " . a:group
     if a:fg != ""
         exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . s:cindex(a:fg)
     endif
@@ -249,7 +250,7 @@ function! s:GuiColorScheme(fname)
     endif
 
     for line in readfile(l:file)
-        if line =~ '^hi'
+        if line =~ '\s*hi'
             let l:name = ""
             let l:fg = ""
             let l:bg = ""
